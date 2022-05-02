@@ -1,7 +1,7 @@
 // 全局变量
 let PLUGIN_NAME = "ShareWarp";
 let PLUGIN_DESCRIPTION = "LLSE 共享公共传送点 [输入 ll plugins ShareWarp 查看具体信息]";     //插件描述
-let VERSION = [1, 0, 0];
+let VERSION = [0, 8, 0];
 let AUTHOR = "莫欣儿";
 let CONNECT = "QQ Group : 850517473"
 let CONFIG = {
@@ -435,7 +435,7 @@ var DateDeal = {
                     return pl.tell(`§b[${PLUGIN_NAME}] §e'${warp.name}' §b删除成功`)
                 case CONFIG.STAR:
                     DateDeal.Delete(pl, warp, CONFIG.PATH, CONFIG.STAR, CONFIG.PONSER)
-                    return pl.tell(`§b[${PLUGIN_NAME}] §e'${warp.name}' §b删除成功`)
+                    return pl.tell(`§b[${PLUGIN_NAME}] §e'${warp.name}' §b已从收藏中删除`)
             }
         }
     },
