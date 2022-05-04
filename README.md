@@ -21,7 +21,7 @@
 |/sharewarp \[ list ; tp ] \[ WarpID ] |打开传送点列表 【List：全局公共传送点，Star：收藏公共传送点】
 |/sharewarp update |上传公共传送点
 |/sharewarp manage \[ star ; ponser ; global ] \[ WarpID ]	|管理传送点 【Star：收藏公共传送点，Ponser：个人公共传送点，Global：全局公共传送点 】
-|**【注意】\[WarpID] 为可选参数 ，不填写打开列表，填写时直接跳转到该 WarpID 的传送点
+**【注意】\[WarpID] 为可选参数 ，不填写打开列表，填写时直接跳转到该 WarpID 的传送点
 
 ## 【使用方法】
 * 【step 1】请先安装 [LiteLoadBDS](https://github.com/LiteLDev/LiteLoaderBDS) 前置加载器
@@ -95,8 +95,11 @@ TIME INFO [ShareWarp] 作者: 莫欣儿 版本: 1.0.0
 
 ## 【图片欣赏】
 ### 【GUI界面】
-### 【聊天窗口通知】
+![GUI效果](https://www.minebbs.com/attachments/png.28611/)
+![GUI效果](https://www.minebbs.com/attachments/png.28612/)
 
+### 【聊天窗口通知】
+![游戏效果](https://www.minebbs.com/attachments/png.28613/)
 
 ## 【最后】
 * 【1】本插件可以整合，但请保证版本更新为最新版
