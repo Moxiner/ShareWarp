@@ -3,7 +3,7 @@
 ![Liscense](https://img.shields.io/github/license/Moxiner/ShareWarp)
 ![Downloads](https://img.shields.io/github/downloads/Moxiner/ShareWarp/total)
 ![Release](https://img.shields.io/github/v/release/Moxiner/ShareWarp)
-![BDS](https://img.shields.io/badge/support--LLSE--version-2.2-red)
+![BDS](https://img.shields.io/badge/support--LLSE--version-Newest-red)
 ![CodeFactor](https://www.codefactor.io/repository/github/Moxiner/ShareWarp/badge)  
 
 ## 【前提&概念】
@@ -24,7 +24,7 @@
 **【注意】\[WarpID] 为可选参数 ，不填写打开列表，填写时直接跳转到该 WarpID 的传送点
 
 ## 【使用方法】
-* 【step 1】请先安装 [LiteLoadBDS](https://github.com/LiteLDev/LiteLoaderBDS) 前置加载器
+* 【step 1】请先安装 [LiteLoaderBDS](https://github.com/LiteLDev/LiteLoaderBDS) 前置加载器
 * 【step 2】将本插件丢进 BDS根目录 *\plugins\* 文件夹中
 * 【step 3】启动服务器，并看到控制台有以下输出
 ```
@@ -105,7 +105,7 @@ TIME INFO [ShareWarp] 作者: 莫欣儿 版本: 1.0.0
 * 【1】本插件可以整合，但请保证版本更新为最新版
 * 【2】本插件原则不可商用，但如果商用整合，请经 Moxiner 授权！
 * 【3】好用的话，一定要Star哦！这样 Moxiner 才会有动力哦！ヽ(￣ω￣(￣ω￣〃)ゝ
-* 【4】如果有 问题/Bug 或 建议/意见 请去 [QQ群](https://jq.qq.com/?_wv=1027&k=CRO8Gw4C) 或 [Github Issues]https://github.com/Moxiner/ShareWarp/issues) 中提出 ╰(￣ω￣ｏ)
+* 【4】如果有 问题/Bug 或 建议/意见 请去 [QQ群](https://jq.qq.com/?_wv=1027&k=CRO8Gw4C) 或 [Github Issues](https://github.com/Moxiner/ShareWarp/issues) 中提出 ╰(￣ω￣ｏ)
 * 【5】如果加入 [QQ群](https://jq.qq.com/?_wv=1027&k=CRO8Gw4C)，礼貌提问，如果是 Moxiner 的插件，反馈时记得 [@Moxiner](https://github.com/Moxiner) 哦！
 * 【6】最后，感谢 LLSE 群友 的帮助！（还有柳姐姐的鼓励！o(*////▽////*)q ）
 
