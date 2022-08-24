@@ -74,8 +74,8 @@ TIME INFO [ShareWarp] 作者: 莫欣儿 版本: 1.0.0
 // 请各位腐竹善用搜索替换自行更新数据文件
 // 虽然升级插件不更新数据文件也不影响使用！( •̀ ω •́ )✧
 ```
-### 【playerdate.js】储存每位玩家的个人传送点**
-### 【stardate.js】储存每位玩家的收藏传送点**
+### 【playerdate.js】储存每位玩家的个人传送点
+### 【stardate.js】储存每位玩家的收藏传送点
 ```
 {
     "Moxiners": [
@@ -110,11 +110,11 @@ TIME INFO [ShareWarp] 作者: 莫欣儿 版本: 1.0.0
 
 ## 【图片欣赏】
 ### 【GUI界面】
-![GUI效果](https://www.minebbs.com/attachments/png.28611/)
-![GUI效果](https://www.minebbs.com/attachments/png.28612/)
+![GUI效果](https://www.minebbs.net/attachments/png.28611/)
+![GUI效果](https://www.minebbs.net/attachments/png.28612/)
 
 ### 【聊天窗口通知】
-![游戏效果](https://www.minebbs.com/attachments/png.28613/)
+![游戏效果](https://www.minebbs.net/attachments/png.28613/)
 
 ## 【最后】
 * 【1】本插件可以整合，但请保证版本更新为最新版
