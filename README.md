@@ -67,7 +67,7 @@ TIME INFO [ShareWarp] 作者: 莫欣儿 版本: 1.0.0
 ]
 
 
-// 在 ShareWarp 0.8.2 with LiteLoader 2.5.1 之后，post[4] 将翻译为中文你
+// 在 ShareWarp 0.8.2 with LiteLoader 2.5.1 之后，post[4] 将翻译为中文
 // Overworld 主世界
 // Nether 下界
 // End 末地
@@ -100,7 +100,7 @@ TIME INFO [ShareWarp] 作者: 莫欣儿 版本: 1.0.0
         }
 }
 
-// 在 ShareWarp 0.8.2 with LiteLoader 2.5.1 之后，post[4] 将翻译为中文你
+// 在 ShareWarp 0.8.2 with LiteLoader 2.5.1 之后，post[4] 将翻译为中文
 // Overworld 主世界
 // Nether 下界
 // End 末地
