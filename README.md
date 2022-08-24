@@ -65,6 +65,14 @@ TIME INFO [ShareWarp] 作者: 莫欣儿 版本: 1.0.0
 ...
 }
 ]
+
+
+// 在 ShareWarp 0.8.2 with LiteLoader 2.5.1 之后，post[4] 将翻译为中文你
+// Overworld 主世界
+// Nether 下界
+// End 末地
+// 请各位腐竹善用搜索替换自行更新数据文件
+// 虽然升级插件不更新数据文件也不影响使用！( •̀ ω •́ )✧
 ```
 ### 【playerdate.js】储存每位玩家的个人传送点**
 ### 【stardate.js】储存每位玩家的收藏传送点**
