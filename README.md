@@ -4,7 +4,6 @@
 ![Downloads](https://img.shields.io/github/downloads/Moxiner/ShareWarp/total)
 ![Release](https://img.shields.io/github/v/release/Moxiner/ShareWarp)
 ![BDS](https://img.shields.io/badge/support--LLSE--version-Newest-red)
-![CodeFactor](https://www.codefactor.io/repository/github/Moxiner/ShareWarp/badge)  
 
 ## 【前提&概念】
 * 每个 Warp 会有一个唯一 WarpID，在 Warp 上传时，WarpID 将会自动生成
