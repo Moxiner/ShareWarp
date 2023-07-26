@@ -1,7 +1,7 @@
 // 全局变量
 let PLUGIN_NAME = "ShareWarp";
 let PLUGIN_DESCRIPTION = "LLSE 共享公共传送点 [输入 ll plugins ShareWarp 查看具体信息]";     //插件描述
-let VERSION = [0, 8, 2];
+let VERSION = [0, 8, 3];
 let AUTHOR = "莫欣儿";
 let CONNECT = "QQ Group : 850517473"
 let CONFIG = {
@@ -14,6 +14,8 @@ var WarpList = []
 var PlayerWarp = {}
 var ManageMode = []
 var Ready = {}
+var mode
+var warp = []
 /* 注册插件 & 插件信息 */
 ll.registerPlugin(PLUGIN_NAME, PLUGIN_DESCRIPTION, VERSION,
     {
@@ -27,7 +29,6 @@ var FileOppeate = {
  * @param filePath 文件路径
  * @param fileName 文件名称
  * @param content 内容
- * @return configForm 内容
  */
     FileWrite: function (filePath, fileName, content) {
         try {
@@ -116,7 +117,7 @@ var GUI = {
         var fm = mc.newSimpleForm();
         fm.setTitle("传送点列表")
         fm.setContent("请选择传送点")
-        for (i in warplist) {
+        for (var i in warplist) {
             fm.addButton(warplist[i]);
         }
         pl.sendForm(fm, callback);
@@ -144,9 +145,9 @@ var DateDeal = {
      * @return 唯一序列号
      * */
     MakeId: function () {
-        warp = DateDeal.ReadWarpID(null, CONFIG.PATH, CONFIG.LIST)
+        var warp = DateDeal.ReadWarpID(null, CONFIG.PATH, CONFIG.LIST)
         var ID = 0
-        for (i in warp) {
+        for (var i in warp) {
             if (warp[i] != ID) {
 
             } else {
@@ -159,14 +160,14 @@ var DateDeal = {
     StringToPost: function (post) {
         var worldReg = /[\u4e00-\u9fa5]+/i;
         var posReg = /\([^\)]+\)/i;
-        world = worldReg.exec(post)
-        post = String(posReg.exec(post))
-        StrPos = `[${post.substring(1, post.length - 1)} , "${world}"]`
-        StrPos = JSON.parse(StrPos);
+        var world = worldReg.exec(post)
+        var post = String(posReg.exec(post))
+        var StrPos = `[${post.substring(1, post.length - 1)} , "${world}"]`
+        var StrPos = JSON.parse(StrPos);
 
         return StrPos
     },
-    /** 更新每个玩家用到的 Warp List
+    /** 读取每个玩家用到的 Warp List
     * @param filePath 文件地址
     * @param warpName 文件名称
     * @param pl 玩家对象
@@ -239,11 +240,11 @@ var DateDeal = {
     */
     UpdateWarp: function (pl, date) {
         if (date != null) {
-            id = DateDeal.MakeId()
-            nama = date[0]
-            des = date[1]
-            op = pl.name
-            post = DateDeal.StringToPost(String(pl.pos))
+            var id = DateDeal.MakeId()
+            var nama = date[0]
+            var des = date[1]
+            var op = pl.name
+            var post = DateDeal.StringToPost(String(pl.pos))
             let content =
             {
                 id: `${id}`,
@@ -279,7 +280,7 @@ var DateDeal = {
     WritePlayerWarp: function (filePath, fileName, pl, content) {    // 更新 PlayerDate 文件
         WarpList = FileOppeate.FileRead(filePath, fileName)
         if (WarpList[`${pl.name}`] == undefined) {
-            array = []
+            var array = []
             array.push(content)
             WarpList[`${pl.name}`] = array
         } else {
@@ -349,8 +350,8 @@ var DateDeal = {
      * @param content 个人传送点数据
      */
     StarWarp: function (pl, content) {
-        starWarp = FileOppeate.FileRead(CONFIG.PATH, CONFIG.STAR)[pl.name]
-        for (i in starWarp) {
+        var starWarp = FileOppeate.FileRead(CONFIG.PATH, CONFIG.STAR)[pl.name]
+        for (var i in starWarp) {
             if (starWarp[i].id == content.id) {
                 return pl.tell(`§e[${PLUGIN_NAME}] 已经收藏过 §6'${content.name}' §e了哦！`)
             }
@@ -365,7 +366,7 @@ var DateDeal = {
     * @param date 表单数据
     */
     DealManage: function (pl, date) {
-        warp = PlayerWarp[pl.name]
+        var warp = PlayerWarp[pl.name]
         switch (date) {
             case 0:
                 GUI.Ready(pl, DateDeal.ReadyDel)
@@ -395,7 +396,7 @@ var DateDeal = {
     Manage: function (pl, date) {
         if (date != null) {
             mode = ManageMode[pl.name]
-            var warp = []
+            warp = []
             if (mode == CONFIG.LIST) {
                 warp = FileOppeate.FileRead(CONFIG.PATH, CONFIG.LIST)[date]
             } else {
@@ -416,7 +417,7 @@ var DateDeal = {
     Delete: function (_pl, warp, filePath, fileName) {
         if (fileName == CONFIG.LIST) {
             var filedate = FileOppeate.FileRead(filePath, fileName)
-            for (i in filedate) {
+            for (var i in filedate) {
                 if (filedate[i].id == warp.id) {
                     filedate.splice(i, 1);
                 }
@@ -424,9 +425,9 @@ var DateDeal = {
             return FileOppeate.FileWrite(filePath, fileName, JSON.stringify(filedate, null, 4))
         } else {
             var filedate = FileOppeate.FileRead(filePath, fileName)
-            for (p in filedate) {
-                filelist = filedate[p]
-                for (i in filelist) {
+            for (var p in filedate) {
+                var filelist = filedate[p]
+                for (var i in filelist) {
                     if (filelist[i].id == warp.id) {
                         filelist.splice(i, 1);
                     }
@@ -517,7 +518,7 @@ var onListen = {
                             var WarpIDList = DateDeal.ReadWarpID(ori.player, CONFIG.PATH, CONFIG.LIST)
                             var warpList = FileOppeate.FileRead(CONFIG.PATH, CONFIG.LIST)
                             WarpList[ori.name] = warplist
-                            for (i in WarpIDList) {
+                            for (var i in WarpIDList) {
                                 if (WarpIDList[i] == res.ID) {
                                     return DateDeal.DescribeWarp(ori.player, i)
                                 }
@@ -535,7 +536,7 @@ var onListen = {
                             var WarpIDList = DateDeal.ReadWarpID(ori.player, CONFIG.PATH, CONFIG.LIST)
                             var warpList = FileOppeate.FileRead(CONFIG.PATH, CONFIG.LIST)
                             WarpList[ori.name] = warplist
-                            for (i in WarpIDList) {
+                            for (var i in WarpIDList) {
                                 if (WarpIDList[i] == res.ID) {
                                     return DateDeal.TpWarp(ori.player, warpList[i].post)
                                 }
@@ -560,7 +561,7 @@ var onListen = {
                                     var warplist = DateDeal.ReadWarp(CONFIG.PATH, CONFIG.STAR, ori.player, "mode")
                                     WarpList[ori.name] = warplist
                                     ManageMode[ori.name] = CONFIG.STAR
-                                    for (i in WarpIDList) {
+                                    for (var i in WarpIDList) {
                                         if (WarpIDList[i] == res.ID) {
                                             return DateDeal.Manage(ori.player, i);
                                         }
@@ -579,7 +580,7 @@ var onListen = {
                                     var warplist = DateDeal.ReadWarp(CONFIG.PATH, CONFIG.PONSER, ori.player, "mode")
                                     WarpList[ori.name] = warplist
                                     ManageMode[ori.name] = CONFIG.STAR
-                                    for (i in WarpIDList) {
+                                    for (var i in WarpIDList) {
                                         if (WarpIDList[i] == res.ID) {
                                             return DateDeal.Manage(ori.player, i);
                                         }
@@ -597,10 +598,10 @@ var onListen = {
                                         GUI.warp(ori.player, WarpList[ori.name], DateDeal.Manage)
                                     } else {
                                         var WarpIDList = DateDeal.ReadWarpID(ori.player, CONFIG.PATH, CONFIG.LIST)
-                                        var warplist = DateDeal.ReadWarp(CONFIG.PATH, CONFIG.PONSER, ori.LIST, "mode")
+                                        var warplist = DateDeal.ReadWarp(CONFIG.PATH, CONFIG.PONSER, ori.player, "mode")
                                         WarpList[ori.name] = warplist
                                         ManageMode[ori.name] = CONFIG.LIST
-                                        for (i in WarpIDList) {
+                                        for (var i in WarpIDList) {
                                             if (WarpIDList[i] == res.ID) {
                                                 return DateDeal.Manage(ori.player, i);
                                             }
@@ -611,7 +612,7 @@ var onListen = {
                         }   
                         return false
                     case "help":
-                        content = `
+                       var content = `
 §bShareWarp §e指令说明
 §a指令
 §b/sharewarp list [WarpID] §f—— §2共享传送点列表
